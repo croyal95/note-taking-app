@@ -1,0 +1,41 @@
+{
+  "name": "note-taking-app",
+  "version": "1.0.1",
+  "description": "A note-taking application with authentication and folder organization",
+  "main": "app.js",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node app.js",
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "prod": "cross-env NODE_ENV=production node app.js",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "format": "prettier --write '**/*.{js,json,md}'"
+  },
+  "author": {
+    "name": "Cole Royal",
+    "email": "cole@example.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.8.4",
+    "morgan": "^1.10.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.51.0",
+    "nodemon": "^3.1.7"
+}
+}

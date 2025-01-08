@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure login page for your account">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login - Secure Account Access</title>
+</head>
+<body>
+    <div class="container">
+        <main class="auth-wrapper">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Welcome Back</h1>
+                    <p class="auth-subtitle">Log in to access your account</p>
+                </div>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Log In</button>
+                    </div>
+                    <div class="form-group remember-me">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="remember" name="remember">
+                            <span class="checkbox-label">Remember me</span>
+                        </label>
+                    </div>
+                </form>
+                <div id="success-message" class="success-message" style="display: none;">
+                    <p>Login successful! Redirecting...</p>
+                </div>
+                <div id="login-error" class="alert alert-error" role="alert" aria-live="polite"></div>
+                <div class="auth-footer">
+                    <p class="text-center">
+                        Don't have an account?
+                        <a href="register.html" class="link-primary">Create account</a>
+                    </p>
+                    <div class="additional-links">
+                        <a href="change-password.html" class="link-secondary">Change Password</a>
+                        <span class="separator">•</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="login.js" defer></script>
+</body>
+</html>

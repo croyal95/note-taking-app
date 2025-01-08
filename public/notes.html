@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Notes app - Create, organize, and manage your notes">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Notes App - My Workspace</title>
+    
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Top Navigation Bar -->
+        <nav class="top-nav" role="navigation">
+            <div class="nav-left">
+                <button 
+                    id="menu-toggle" 
+                    class="icon-button" 
+                    aria-label="Toggle sidebar"
+                    aria-expanded="true"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </button>
+                <h1 class="app-title">Notes</h1>
+            </div>
+
+            <div class="nav-right">
+                <div class="theme-toggle-wrapper">
+                    <label class="switch" for="theme-toggle">
+                        <span class="visually-hidden">Toggle dark mode</span>
+                        <input 
+                            type="checkbox" 
+                            id="theme-toggle"
+                            role="switch"
+                            aria-label="Toggle dark mode"
+                            aria-checked="false"
+                        >
+                        <span class="slider">
+                            <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+                            </svg>
+                        </span>
+                    </label>
+                </div>
+                
+                <div class="user-menu">
+                    <button 
+                        id="user-menu-button" 
+                        class="icon-button"
+                        aria-label="User menu"
+                        aria-expanded="false"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="app-container">
+            <!-- Sidebar -->
+            <aside class="sidebar" role="complementary" aria-label="Folders navigation">
+                <div class="sidebar-header">
+                    <h2>Folders</h2>
+                    <button 
+                        id="new-folder-btn"
+                        class="icon-button"
+                        aria-label="Create new folder"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="folder-creation" hidden>
+                    <form id="new-folder-form" class="folder-form">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="new-folder-input"
+                                name="folderName"
+                                placeholder="Enter folder name"
+                                maxlength="50"
+                                required
+                                aria-label="New folder name"
+                            >
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Create</button>
+                                <button type="button" class="btn-secondary" id="cancel-folder">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <nav class="folder-navigation">
+                    <ul id="folder-list" role="tree" aria-label="Folders"></ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content" role="main">
+                <div class="note-header">
+                    <div class="note-title-wrapper">
+                        <h2 
+                            id="note-title" 
+                            class="note-title" 
+                            contenteditable="true"
+                            aria-label="Note title"
+                            role="textbox"
+                            spellcheck="true"
+                        >Untitled Note</h2>
+                    </div>
+                    
+                    <div class="note-actions">
+                        <button 
+                            id="save-note-btn"
+                            class="btn-primary"
+                            aria-label="Save note"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
+                            </svg>
+                            Save
+                        </button>
+                    </div>
+                </div>
+
+                <div class="note-editor">
+                    <textarea 
+                        id="note-body"
+                        class="note-content"
+                        placeholder="Write your note here..."
+                        aria-label="Note content"
+                        spellcheck="true"
+                    ></textarea>
+                </div>
+            </main>
+
+            <!-- Notes List Sidebar -->
+            <aside class="notes-sidebar" role="complementary" aria-label="Notes list">
+                <div class="notes-list-header">
+                    <h3>Notes</h3>
+                    <button 
+                        id="new-note-btn"
+                        class="icon-button"
+                        aria-label="Create new note"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="notes-list" class="notes-list"></div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Templates -->
+    <template id="folder-item-template">
+        <li class="folder-item" role="treeitem">
+            <button class="folder-button">
+                <svg class="folder-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
+                </svg>
+                <span class="folder-name"></span>
+            </button>
+            <button class="folder-menu-button" aria-label="Folder options">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </button>
+        </li>
+    </template>
+    
+    <script src="scripts.js" defer></script>
+</body>
+</html>

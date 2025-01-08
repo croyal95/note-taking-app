@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your account - Secure registration page">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Create Account - Secure Registration</title>
+</head>
+<body>
+    <div class="container">
+        <main class="auth-wrapper">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Create Account</h1>
+                    <p class="auth-subtitle">Join us to start creating and organizing your notes</p>
+                </div>
+
+                <form id="register-form" class="auth-form" action="http://127.0.0.5500/public/index.html">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email"
+                                autocomplete="username"
+                                required
+                                spellcheck="false"
+                                aria-required="true"
+                                aria-describedby="email-requirements"
+                                placeholder="you@example.com">
+                        </div>
+                        <small id="email-requirements" class="input-help">Enter a valid email address</small>
+                        <span id="email-error" class="error-text" role="alert"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password"
+                                autocomplete="new-password"
+                                required
+                                aria-required="true"
+                                aria-describedby="password-requirements"
+                                minlength="8">
+                            <button 
+                                type="button" 
+                                class="toggle-password" 
+                                aria-label="Toggle password visibility">
+                            </button>
+                        </div>
+                        <div id="password-requirements" class="requirements-list">
+                            <p>Password must contain:</p>
+                            <ul>
+                                <li id="req-length">At least 8 characters</li>
+                                <li id="req-uppercase">One uppercase letter</li>
+                                <li id="req-lowercase">One lowercase letter</li>
+                                <li id="req-number">One number</li>
+                                <li id="req-special">One special character</li>
+                            </ul>
+                        </div>
+                        <span id="password-error" class="error-text" role="alert"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="confirm-password" 
+                                name="confirm-password"
+                                autocomplete="new-password"
+                                required
+                                aria-required="true"
+                                aria-describedby="confirm-password-error">
+                        </div>
+                        <span id="confirm-password-error" class="error-text" role="alert"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span class="btn-text">Create Account</span>
+                            <span class="btn-loader" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="register-error" class="alert alert-error" role="alert" aria-live="polite"></div>
+
+                <div class="auth-footer">
+                    <p class="text-center">
+                        Already have an account? 
+                        <a href="http://127.0.0.1:5500/public/index.html" class="link-primary">Log in</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="register.js" defer></script>
+</body>
+</html>
