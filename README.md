@@ -41,7 +41,7 @@ MongoDB.
 
 Clone the repository
 
-git clone [<repository-url>](https://github.com/croyal95/note-taking-app)
+git clone https://github.com/croyal95/note-taking-app
 cd note-taking-app
 
 Install dependencies
